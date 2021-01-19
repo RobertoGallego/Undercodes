@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import * as videoService from "./videoService";
 
-import { Video } from "./video";
-import VideoItem from "./videoItem";
+import * as videoService from "components/videos/videoService";
+import { Video } from "components/videos/video";
+import VideoItem from "components/videos/videoItem";
 
 const VideoList = () => {
     const [videos, setVideos] = useState<Video[]>([]);

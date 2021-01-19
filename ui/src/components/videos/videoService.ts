@@ -1,5 +1,6 @@
 import axios from "axios";
-import { Video } from "./video";
+
+import { Video } from "components/videos/video";
 
 const API = process.env.REACT_APP_API;
 

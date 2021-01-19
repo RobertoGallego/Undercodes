@@ -1,10 +1,10 @@
 import * as React from "react"
+import { Dispatch } from "redux"
 import { useSelector, shallowEqual, useDispatch } from "react-redux"
 
-import { Article } from "./articleItem"
-import { AddArticle } from "./addArticle"
-import { addArticle, removeArticle } from "../../redux/action/actions-creators"
-import { Dispatch } from "redux"
+import { Article } from "components/articles/articleItem"
+import { AddArticle } from "components/articles/addArticle"
+import { addArticle, removeArticle } from "redux/action/actions-creators"
 
 const App: React.FC = () => {
     const articles: readonly IArticle[] = useSelector(

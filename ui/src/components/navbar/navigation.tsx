@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
-import useStyles from "../../assets/styles/navigation";
+
+import useStyles from "assets/styles/navigation";
 
 interface Props {
 

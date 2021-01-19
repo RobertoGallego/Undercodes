@@ -1,8 +1,8 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
-import * as videoService from "./videoService";
-import { Video } from "./video";
+import * as videoService from "components/videos/videoService";
+import { Video } from "components/videos/video";
 
 type InputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 

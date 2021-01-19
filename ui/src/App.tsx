@@ -1,15 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-
-import ArticlesList from "./components/articles/articleList";
-import Navbar from "./components/navbar/navbar";
-import VideoList from "./components/videos/videoList";
-import VideoForm from "./components/videos/videoForm";
-
-import Navigation from "./components/navbar/navigation";
-import Undercodes from "./components/homepage/undercodes";
+import Navigation from "components/navbar/navigation";
+import Undercodes from "components/homepage/undercodes";
+import ArticlesList from "components/articles/articleList";
+import Navbar from "components/navbar/navbar";
+import VideoList from "components/videos/videoList";
+import VideoForm from "components/videos/videoForm";
 
 function App() {
   return (

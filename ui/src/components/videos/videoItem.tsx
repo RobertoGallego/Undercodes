@@ -1,10 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom"
 
-import * as videoService from "./videoService";
-import { Video } from "./video";
+import * as videoService from "components/videos/videoService";
+import { Video } from "components/videos/video";
 
-import useStyles from "../../assets/styles/videoItem";
+import useStyles from "assets/styles/videoItem";
 
 interface Props {
     video: Video;
