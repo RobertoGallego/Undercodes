@@ -1,42 +1,44 @@
-import * as React from "react";
+export {}
 
-type Props = {
-    saveArticle: (article: IArticle | any) => void
-}
+// import * as React from "react"
 
-export const AddArticle: React.FC<Props> = ({ saveArticle }) => {
-    const [article, setArticle] = React.useState<IArticle | {}>()
+// type Props = {
+//     saveArticle: (article: IArticle | any) => void
+// }
 
-    const handleArticleData = (e: React.FormEvent<HTMLInputElement>) => {
-        setArticle({
-        ...article,
-        [e.currentTarget.id]: e.currentTarget.value,
-        })
-    }
+// export const AddArticle: React.FC<Props> = ({ saveArticle }) => {
+//     const [article, setArticle] = React.useState<IArticle | {}>()
 
-    const addNewArticle = (e: React.FormEvent) => {
-        e.preventDefault()
-        saveArticle(article)
-    }
+//     const handleArticleData = (e: React.FormEvent<HTMLInputElement>) => {
+//         setArticle({
+//         ...article,
+//         [e.currentTarget.id]: e.currentTarget.value,
+//         })
+//     }
 
-    return (
-        <form onSubmit={addNewArticle} className="Add-article">
-            <input
-                type="text"
-                id="title"
-                placeholder="Title"
-                onChange={handleArticleData}
-            />
-            <input
-                style={{ marginInline: 50 }}
-                type="text"
-                id="body"
-                placeholder="Description"
-                onChange={handleArticleData}
-            />
-            <button disabled={article === undefined ? true : false}>
-            Add article
-            </button>
-        </form>
-    )
-}
+//     const addNewArticle = (e: React.FormEvent) => {
+//         e.preventDefault()
+//         saveArticle(article)
+//     }
+
+//     return (
+//         <form onSubmit={addNewArticle} className="Add-article">
+//             <input
+//                 type="text"
+//                 id="title"
+//                 placeholder="Title"
+//                 onChange={handleArticleData}
+//             />
+//             <input
+//                 style={{ marginInline: 50 }}
+//                 type="text"
+//                 id="body"
+//                 placeholder="Description"
+//                 onChange={handleArticleData}
+//             />
+//             <button disabled={article === undefined ? true : false}>
+//             Add article
+//             </button>
+//         </form>
+//     )
+// }

@@ -1,16 +1,14 @@
-interface IArticle {
-    id: number;
-    title: string;
-    body: string;
+interface ThemeSetting {
+    switchTheme: boolean;
 }
-  
-type ArticleState = {
-    articles: IArticle[];
+
+type ThemeState = {
+    options: ThemeSetting[];
 };
-  
-type ArticleAction = {
+
+type ThemeAction = {
     type: string;
-    article: IArticle;
+    option: ThemeSetting;
 };
-  
-type DispatchType = (args: ArticleAction) => ArticleAction;
+
+type DispatchType = (args: ThemeAction) => ThemeAction;

@@ -1,40 +1,42 @@
-import * as React from "react"
-import { Dispatch } from "redux"
-import { useSelector, shallowEqual, useDispatch } from "react-redux"
+export {}
 
-import { Article } from "components/articles/articleItem"
-import { AddArticle } from "components/articles/addArticle"
-import { addArticle, removeArticle } from "redux/action/actions-creators"
+// import React from "react"
+// import { useSelector, shallowEqual, useDispatch } from "react-redux"
 
-const App: React.FC = () => {
-    const articles: readonly IArticle[] = useSelector(
-        (state: ArticleState) => state.articles,
-        shallowEqual
-    )
+// import { Article } from "./articleItem"
+// import { AddArticle } from "./addArticle"
+// import { addArticle, removeArticle } from "redux/action/creators"
+// import { Dispatch } from "redux"
 
-    const dispatch: Dispatch<any> = useDispatch()
+// const App: React.FC = () => {
+//     const articles: IArticle[] = useSelector(
+//         (state: ArticleState) => state.articles,
+//         shallowEqual
+//     )
 
-    const saveArticle = React.useCallback(
-        (article: IArticle) => dispatch(addArticle(article)),
-        [dispatch]
-    )
+//     const dispatch: Dispatch<any> = useDispatch()
 
-    return (
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#f2f2f2", padding: "30px", margin: "10px" }}>
-            <div>
-                <h1>Write an article</h1>
-                <AddArticle saveArticle={saveArticle} />
-                <div style={{ margin: 100 }}></div>
-                { articles.map((article: IArticle) => (
-                    <Article
-                        key={article.id}
-                        article={article}
-                        removeArticle={removeArticle}
-                    />
-                ))}
-            </div>
-        </div>
-    )
-}
+//     const saveArticle = React.useCallback(
+//         (article: IArticle) => dispatch(addArticle(article)),
+//         [dispatch]
+//     )
 
-export default App
+//     return (
+//         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#f2f2f2", padding: "30px", margin: "10px" }}>
+//             <div>
+//                 <h1>Write an article</h1>
+//                 <AddArticle saveArticle={saveArticle} />
+//                 <div style={{ margin: 100 }}></div>
+//                 { articles.map((article: IArticle) => (
+//                     <Article
+//                         key={article.id}
+//                         article={article}
+//                         removeArticle={removeArticle}
+//                     />
+//                 ))}
+//             </div>
+//         </div>
+//     )
+// }
+
+// export default App
