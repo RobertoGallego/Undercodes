@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from "react-router-dom";
 
-import { Button, CssBaseline, Grid } from "@material-ui/core";
+import { CssBaseline, Grid } from "@material-ui/core";
 
 import Navigation from "components/navbar/navigation";
 import Routes from "routes";
@@ -12,7 +12,6 @@ import darkTheme from "assets/darkTheme";
 import { shallowEqual, useSelector } from "react-redux";
 
 function App() {
-
     const settings: ThemeSetting[] = useSelector(
         (state: ThemeState) => state.options,
         shallowEqual

@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Dispatch } from "redux";
+import { useDispatch, useSelector } from "react-redux";
+import { themeSettings } from "redux/action/creators";
 
 import { 
     AppBar, 
@@ -11,6 +14,7 @@ import {
 } from "@material-ui/core";
 
 import MenuIcon from "@material-ui/icons/Menu";
+
 import { CSSTransition } from "react-transition-group"
 
 import DrawerMenu from "components/drawer/drawer";
@@ -18,35 +22,26 @@ import Menu from "components/navbar/menu";
 
 import useStyles from "assets/styles/navigation";
 
-import { Dispatch } from "redux";
-import { useDispatch } from "react-redux";
-import { themeSettings } from "redux/action/creators";
-
 interface Props {
 }
 
 const Navigation = (props: Props) => {
     const [drawerSwitch, setdrawerSwitch] = useState(false);
-    // const [darkmode, serDarkmode] = useState<ThemeSetting | {}>()
     const [checked, setChecked] = React.useState(false);
 
-    const styles = useStyles(props);
+    const dispatch: Dispatch<any> = useDispatch();
+    const switchTheme = (state: ThemeState) => state.options[0].switchTheme;
+    const themeSetting = useSelector(switchTheme);
 
     const nodeRef = React.useRef(null);
-
+    const styles = useStyles(props);
+    
     const toggleDrawer = (open: boolean) => (event: any) => { 
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
         setdrawerSwitch(open);
     };
-
-    const dispatch: Dispatch<any> = useDispatch();
-
-    // const settings: ThemeSetting[] = useSelector(
-    //     (state: ThemeState) => state.options,
-    //     shallowEqual
-    // )
 
     const toggleChecked = (event: any) => { 
         // event.preventDefault()
@@ -57,9 +52,6 @@ const Navigation = (props: Props) => {
         } else {
             dispatch(themeSettings({switchTheme: true}));
         }
-
-        // console.log(checked);
-        // console.log(settings)
     }
 
     return (
@@ -71,8 +63,7 @@ const Navigation = (props: Props) => {
                     </Typography>
                     <Hidden xsDown>
                         <Menu/>
-                        <Switch checked={checked} onClick={toggleChecked}/>
-                        {/* <button onClick={toggleChecked}>JAJAJAJA</button> */}
+                        <Switch checked={themeSetting} onClick={toggleChecked}/>
                     </Hidden>
                     <Hidden smUp>
                         <IconButton onClick={toggleDrawer(true)} edge="end" className={styles.menuButton} color="inherit" aria-label="menu">

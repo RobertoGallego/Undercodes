@@ -1,17 +1,23 @@
 import { createStore, applyMiddleware, Store } from "redux"
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 import thunk from "redux-thunk"
 
 import reducer from "redux/action/reducer";
-// import reducer2 from "redux/action/reducer";
-
-const store: Store<ThemeState, ThemeAction> & {
-    dispatch: DispatchType
-} = createStore(reducer, applyMiddleware(thunk));
 
 // const rootReducer = combineReducers({
-//     system: systemReducer,
-//     chat: chatReducer
+//     app: reducer,
 // })
 
-export default store;
-// export type RootState = ReturnType<typeof rootReducer>
+const persistConfig = {
+    key: 'root',
+    storage,
+}
+
+const persistedReducer = persistReducer(persistConfig, reducer);
+
+export const store: Store<ThemeState, ThemeAction> & {
+    dispatch: DispatchType
+} = createStore(persistedReducer, applyMiddleware(thunk));
+
+export const persistor = persistStore(store);
