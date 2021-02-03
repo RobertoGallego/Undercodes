@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import { Typography } from "@material-ui/core";
+import Link from '@material-ui/core/Link';
 
 import useStyles from "assets/styles/navigation";
 
@@ -13,11 +13,10 @@ const Menu = (props: Props) => {
 
     return (
         <div>
-            <Typography color="primary" variant="button" display="block" gutterBottom>
-                <Link color="inherit" className={styles.menuButton} to="/">Home</Link>
-                <Link color="inherit" className={styles.menuButton} to="/videos">Videos</Link>
-                <Link color="inherit" className={styles.menuButton} to="/articles">Article</Link>
-                <Link color="inherit" className={styles.menuButton} to="/new-video">Create a New Video</Link>
+            <Typography color="primary" variant="button" gutterBottom>
+                <Link className={styles.menuButton} href="/">Home</Link>
+                <Link className={styles.menuButton} href="/videos">Videos</Link>
+                <Link className={styles.menuButton} href="/new-video">Create a New Video</Link>
             </Typography>
         </div>
     )

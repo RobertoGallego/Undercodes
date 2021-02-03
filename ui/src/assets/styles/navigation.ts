@@ -4,21 +4,35 @@ const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
     },
+    // Navigation style
     title: {
-        flexGrow: 1,
         marginLeft: theme.spacing(2),
     },
     menuButton: {
         marginRight: theme.spacing(2),
-        textDecoration: 'none'
+        "&:hover": {
+            textDecoration: "none",
+            color: "#777777",
+        },
     },
-    text: {
-        // backgroundColor: "red",
-        color: "blue",
+    // Wrapper style
+    wrapperCenter: {
+        minWidth: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
     },
-    text2: {
-        color: "red"
-    }
+    wrapperIconEffect: {
+        "&:hover": {
+            backgroundColor: "transparent"
+        },
+    },
+    wrapperButton: {
+        marginRight: theme.spacing(2),
+        "&:hover": {
+            textDecoration: "none",
+        },
+    },
 }));
 
 export default useStyles;

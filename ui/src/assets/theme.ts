@@ -8,15 +8,34 @@ const theme = () =>
         palette: {
             type: "light",
             primary: {
-                light: "#fff",
-                main: "#fff111",
-                dark: "#424242"
-                
+                main: "#252525",
             },
             secondary: {
-                light: "#fff",
-                main: "#987854",
-                dark: "#424242"
+                main: "#494949",
+            },
+        },
+        typography: {
+            fontFamily: [
+                '-apple-system',
+                'BlinkMacSystemFont',
+                '"Segoe UI"',
+                'Roboto',
+                '"Helvetica Neue"',
+                'Arial',
+                'sans-serif',
+                '"Apple Color Emoji"',
+                '"Segoe UI Emoji"',
+                '"Segoe UI Symbol"',
+            ].join(','),
+            fontSize: 16,
+            subtitle1: {
+                fontSize: 12,
+            },
+            body1: {
+                fontWeight: 500,
+            },
+            button: {
+                fontStyle: 'bold',
             },
         },
         shadows: Array(25).fill("none") as Shadows

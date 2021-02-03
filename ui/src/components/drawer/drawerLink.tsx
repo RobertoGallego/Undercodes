@@ -1,29 +1,31 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import { Typography, List, ListItem, Grid } from "@material-ui/core";
+import Link from '@material-ui/core/Link';
 
-import { Typography, List, ListItem } from "@material-ui/core";
+import useStyles from "assets/styles/navigation";
 
 interface Props {
     urlTo: string,
     buttonName: string 
 }
 
-const drawerLink = (props: Props) => {
+const DrawerLink = (props: Props) => {
     const { urlTo, buttonName } = props;
+    const styles = useStyles();
 
     return (
-        <div>
+        <Grid>
             <List>
-                <ListItem button>
+                <ListItem button className={styles.wrapperCenter}>
                     {/* <ListItemIcon> <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-                    <Typography color="primary" variant="button" display="block" gutterBottom>
-                        <Link color="inherit" className={""} to={urlTo}>{buttonName}</Link>
+                    <Typography color="primary" variant="button" gutterBottom>
+                        <Link className={styles.wrapperButton} href={urlTo}>{buttonName}</Link>
                     </Typography>
                 </ListItem>
             </List>
-        </div>
+        </Grid>
     )
 }
 
-export default drawerLink;
+export default DrawerLink;

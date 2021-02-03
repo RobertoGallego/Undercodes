@@ -13,7 +13,7 @@ const Routes = () => {
                 <Route exact path="/" component={Undercodes} />
                 <Route exact path="/videos" component={VideoList} />
                 {/* <Route exact path="/articles" component={ArticlesList} /> */}
-                <Route path="/new-video" component={VideoForm} />
+                <Route exact path="/new-video" component={VideoForm} />
                 <Route path="/update/:id" component={VideoForm} />
             </Switch>
         </div>

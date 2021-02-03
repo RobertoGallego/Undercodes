@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import { Dispatch } from "redux";
-import { useDispatch, useSelector } from "react-redux";
-import { themeSettings } from "redux/action/creators";
 
 import { 
     AppBar, 
@@ -10,7 +7,7 @@ import {
     Hidden,
     IconButton, 
     Drawer, 
-    Switch,
+    Grid,
 } from "@material-ui/core";
 
 import MenuIcon from "@material-ui/icons/Menu";
@@ -27,11 +24,6 @@ interface Props {
 
 const Navigation = (props: Props) => {
     const [drawerSwitch, setdrawerSwitch] = useState(false);
-    const [checked, setChecked] = React.useState(false);
-
-    const dispatch: Dispatch<any> = useDispatch();
-    const switchTheme = (state: ThemeState) => state.options[0].switchTheme;
-    const themeSetting = useSelector(switchTheme);
 
     const nodeRef = React.useRef(null);
     const styles = useStyles(props);
@@ -43,33 +35,28 @@ const Navigation = (props: Props) => {
         setdrawerSwitch(open);
     };
 
-    const toggleChecked = (event: any) => { 
-        // event.preventDefault()
-        setChecked((prev) => !prev);        
-        
-        if (checked) {
-            dispatch(themeSettings({switchTheme: false}));
-        } else {
-            dispatch(themeSettings({switchTheme: true}));
-        }
-    }
-
     return (
-        <nav className={styles.root}>
-            <AppBar position="static" color="transparent" elevation={0}>
+        <Grid className={styles.root}>
+            <AppBar position="static" elevation={0} color="transparent">
                 <Toolbar>
-                    <Typography variant="h6" className={styles.title}>
-                        News
-                    </Typography>
-                    <Hidden xsDown>
-                        <Menu/>
-                        <Switch checked={themeSetting} onClick={toggleChecked}/>
-                    </Hidden>
-                    <Hidden smUp>
-                        <IconButton onClick={toggleDrawer(true)} edge="end" className={styles.menuButton} color="inherit" aria-label="menu">
-                            <MenuIcon/>
-                        </IconButton>
-                    </Hidden>
+                    <Grid container direction="row" justify="space-between" alignItems="center">
+                        <Typography variant="h6" className={styles.title}>
+                            UNDERCODES
+                        </Typography>
+                        <Hidden xsDown>
+                            <Menu/>
+                        </Hidden>
+                        <Hidden smUp>
+                            <IconButton 
+                                onClick={toggleDrawer(true)} 
+                                edge="end" 
+                                className={styles.menuButton}
+                                aria-label="menu"
+                            >
+                                <MenuIcon/>
+                            </IconButton>
+                        </Hidden>
+                    </Grid>
                     <CSSTransition nodeRef={nodeRef} in timeout={200} classNames="fade">
                         <div ref={nodeRef}>
                             <Drawer
@@ -89,7 +76,7 @@ const Navigation = (props: Props) => {
                     </CSSTransition>
                 </Toolbar>
             </AppBar>
-        </nav>
+        </Grid>
     );
 }
 
