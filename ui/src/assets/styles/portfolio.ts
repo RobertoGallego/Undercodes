@@ -10,32 +10,36 @@ const useStyles = makeStyles((theme: Theme)=> ({
     portfolioTopLeftText: {
         marginInline: theme.spacing(3),
         // backgroundColor: "green",
-        color: "Black",
+        // color: "Black",
         fontWeight: 500
     },
     portfolioTopRightText: {
         marginInline: theme.spacing(3),
         // backgroundColor: "green",
-        color: "Black",
+        // color: "Black",
         fontWeight: 500
     },
     portfolioBottomContainer: {
-        marginBlockStart: theme.spacing(2),
+        marginBlockStart: theme.spacing(3),
         '@media (max-width: 600px)': {
-            marginBlockStart: theme.spacing(1),
+            marginBlockStart: theme.spacing(1.5),
         },
     },
     portfolioCardContainer: {
-        marginBlockStart: theme.spacing(2),
-        marginInline: theme.spacing(1),
+        marginBlockStart: theme.spacing(3),
+        marginInline: theme.spacing(1.5),
         '@media (max-width: 600px)': {
-            marginBlockStart: theme.spacing(1),
+            marginBlockStart: theme.spacing(1.5),
         },
+    },
+    portfolioCard: {
+        // boxShadow: '2px 2px 10px 0 rgba(125,125,125,0.1)',
+        borderRadius: 0,
     },
     CardContainerAction: {
         zindex: 40,
         cursor: "pointer",
-        width: 335,
+        width: 320,
         marginTop: "-10%",
         transitionDuration: "0.1s",
 
@@ -51,7 +55,7 @@ const useStyles = makeStyles((theme: Theme)=> ({
         position: "absolute",
         bottom: 0,
         left: 0,
-        width: 345,
+        width: 320,
         paddingBlock: 10,
     }
 }));

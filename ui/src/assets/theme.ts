@@ -14,6 +14,9 @@ const theme = () =>
             background: {
                 default: "#ededed"
             },
+            text: {
+               primary: "#000"
+            }
         },
         typography: {
             fontFamily: [

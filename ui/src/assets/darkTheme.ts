@@ -14,6 +14,9 @@ const darkTheme = () =>
         background: {
             default: "#252525"
         },
+        text: {
+            primary: "#fff"
+        }
     },
     typography: {
         fontFamily: [
