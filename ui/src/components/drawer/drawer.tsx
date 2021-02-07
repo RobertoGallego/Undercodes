@@ -14,7 +14,7 @@ const Drawer = (props: Props) => {
     const styles = useStyles(props);
 
     return (
-        <Grid className={styles.root} >
+        <Grid className={styles.root}>
             <Grid>
                 <DrawerLink urlTo={"/"} buttonName={"Home"} />
                 <DrawerLink urlTo={"/videos"} buttonName={"Videos"} />

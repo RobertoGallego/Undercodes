@@ -14,9 +14,11 @@ const Menu = (props: Props) => {
     return (
         <div>
             <Typography color="primary" variant="button" gutterBottom>
-                <Link className={styles.menuButton} href="/">Home</Link>
-                <Link className={styles.menuButton} href="/videos">Videos</Link>
-                <Link className={styles.menuButton} href="/new-video">Create a New Video</Link>
+                <Link className={styles.menuButton} href="/about">A PROPOS</Link>
+                <Link className={styles.menuButton} href="/portfolio">PORTFOLIO</Link>
+                <Link className={styles.menuButton} href="/contact">CONTACT</Link>
+                {/* <Link className={styles.menuButton} href="/videos">Videos</Link>
+                <Link className={styles.menuButton} href="/new-video">Create a New Video</Link> */}
             </Typography>
         </div>
     )

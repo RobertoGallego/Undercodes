@@ -4,18 +4,18 @@ import {
     AppBar, 
     Toolbar,
     Typography, 
-    Hidden,
     IconButton, 
     Drawer, 
     Grid,
+    Link,
 } from "@material-ui/core";
 
-import MenuIcon from "@material-ui/icons/Menu";
+import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 
 import { CSSTransition } from "react-transition-group"
 
 import DrawerMenu from "components/drawer/drawer";
-import Menu from "components/navbar/menu";
+// import Menu from "components/navbar/menu";
 
 import useStyles from "assets/styles/navigation";
 
@@ -38,24 +38,32 @@ const Navigation = (props: Props) => {
     return (
         <Grid className={styles.root}>
             <AppBar position="static" elevation={0} color="transparent">
-                <Toolbar>
-                    <Grid container direction="row" justify="space-between" alignItems="center">
-                        <Typography variant="h6" className={styles.title}>
-                            UNDERCODES
-                        </Typography>
-                        <Hidden xsDown>
-                            <Menu/>
-                        </Hidden>
-                        <Hidden smUp>
+                <Toolbar className={styles.headerToolbar}>
+                    <Grid className={styles.headerContainer} container>
+                        <Grid sm={1} md={1} lg={2} xl={3} />
+                        <Grid 
+                            container justify="space-between" alignItems="center"
+                            xs={12} sm={10} md={10} lg={8} xl={6}
+                        >
+                            <Typography variant="h6" className={styles.headerTitle}>
+                                <Link className={styles.headerFontTitle} href="/">
+                                    UNDERCODES
+                                </Link>
+                            </Typography>
+                            {/* <Hidden xsDown>
+                                <Menu/>
+                            </Hidden> */}
+                            {/* <Hidden xsUp> */}
                             <IconButton 
                                 onClick={toggleDrawer(true)} 
-                                edge="end" 
-                                className={styles.menuButton}
+                                className={styles.headerMenuIcon}
                                 aria-label="menu"
                             >
-                                <MenuIcon/>
+                                <MenuRoundedIcon/>
                             </IconButton>
-                        </Hidden>
+                        </Grid>
+                        <Grid sm={1} md={1} lg={2} xl={3} />
+                        {/* </Hidden> */}
                     </Grid>
                     <CSSTransition nodeRef={nodeRef} in timeout={200} classNames="fade">
                         <div ref={nodeRef}>

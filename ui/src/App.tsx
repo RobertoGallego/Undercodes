@@ -9,6 +9,7 @@ import Footer from "components/footer/footer";
 
 import { CssBaseline, Grid } from "@material-ui/core";
 import { ThemeProvider } from '@material-ui/core/styles';
+
 import theme from "assets/theme";
 import darkTheme from "assets/darkTheme";
 import useStyles from 'assets/styles/rootStyle';
@@ -30,14 +31,14 @@ function App() {
         <ThemeProvider theme={themeSetting ? darkTheme() : theme()}>
             <CssBaseline />
             <BrowserRouter>
-                <Grid container direction="column" className={styles.root}>
-                    <Grid item container xs={12}>
+                <Grid container className={styles.root}>
+                    <Grid container item xs={12}>
                         <Navigation />
                     </Grid>
-                    <Grid item container xs={12}>
+                    <Grid container item xs={12} justify="space-around" alignItems="center">
                         <Routes/>
                     </Grid>
-                    <Grid item container xs={12}>
+                    <Grid container item xs={12} justify="space-around" alignItems="flex-end">
                         <Footer />
                     </Grid>
                 </Grid>
