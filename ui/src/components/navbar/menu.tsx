@@ -1,7 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import { Typography } from "@material-ui/core";
-import Link from '@material-ui/core/Link';
+import {Box, Grid, Typography } from "@material-ui/core";
 
 import useStyles from "assets/styles/navigation";
 
@@ -12,15 +12,20 @@ const Menu = (props: Props) => {
     const styles = useStyles();
 
     return (
-        <div>
-            <Typography color="primary" variant="button" gutterBottom>
-                <Link className={styles.menuButton} href="/about">A PROPOS</Link>
-                <Link className={styles.menuButton} href="/portfolio">PORTFOLIO</Link>
-                <Link className={styles.menuButton} href="/contact">CONTACT</Link>
-                {/* <Link className={styles.menuButton} href="/videos">Videos</Link>
-                <Link className={styles.menuButton} href="/new-video">Create a New Video</Link> */}
+            <Typography component="div" color="primary" variant="button" gutterBottom>
+                <Grid container item direction="row" alignItems="center" justify="center">
+                    <Link className={styles.menuButtonHover} to="/about">
+                        <Box className={styles.menuButtonMain} color="text.primary">A PROPOS</Box></Link>
+                    <Link className={styles.menuButtonHover} to="/portfolio">
+                        <Box className={styles.menuButtonMain} color="text.primary">PORTFOLIO</Box>
+                    </Link>
+                    <Link className={styles.menuButtonHover}  to="/contact">
+                        <Box className={styles.menuButtonMain} color="text.primary">CONTACT</Box>
+                    </Link>
+                    {/* <Link className={styles.menuButton} href="/videos">Videos</Link>
+                    <Link className={styles.menuButton} href="/new-video">Create a New Video</Link> */}        
+                </Grid>
             </Typography>
-        </div>
     )
 }
 

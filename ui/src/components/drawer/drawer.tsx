@@ -16,17 +16,17 @@ const Drawer = (props: Props) => {
     return (
         <Grid className={styles.root}>
             <Grid>
-                <DrawerLink urlTo={"/"} buttonName={"Home"} />
-                <DrawerLink urlTo={"/videos"} buttonName={"Videos"} />
-                <DrawerLink urlTo={"/articles"} buttonName={"Articles"} />
-                <DrawerLink urlTo={"/new-video"} buttonName={"Create a new video"} />
-                <Grid className={styles.wrapperCenter}>
-                    <ListItem button >
-                        <Grid className={styles.wrapperCenter}>
-                            <IconButton size="small" color="primary" className={styles.wrapperIconEffect}>
-                                <KeyboardArrowUpIcon/>
-                            </IconButton>
-                        </Grid>
+                <DrawerLink urlTo={"/"} buttonName={"Home"} /> 
+                <DrawerLink urlTo={"/about"} buttonName={"About"} /> 
+                <DrawerLink urlTo={"/portfolio"} buttonName={"Portfolio"} />
+                <DrawerLink urlTo={"/contact"} buttonName={"Contact"} />
+                {/* <DrawerLink urlTo={"/videos"} buttonName={"Videos"} />
+                <DrawerLink urlTo={"/new-video"} buttonName={"Create a new video"} /> */}
+                <Grid>
+                    <ListItem className={styles.wrapperIcon}>
+                        <IconButton size="small" color="primary" className={styles.wrapperCenter} >
+                            <KeyboardArrowUpIcon/> 
+                        </IconButton>
                     </ListItem>
                 </Grid>
             </Grid>

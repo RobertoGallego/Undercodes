@@ -15,7 +15,7 @@ const theme = () =>
                 default: "#ededed"
             },
             text: {
-               primary: "#000"
+                primary: "#000"
             }
         },
         typography: {
@@ -45,6 +45,7 @@ const theme = () =>
             },
             button: {
                 fontStyle: 'bold',
+                textPrimary: "#000",
             },
             h2: {
                 fontSize: '2.8rem',

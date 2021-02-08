@@ -8,7 +8,10 @@ import {
     Hidden, 
     Typography 
 } from '@material-ui/core';
-
+ 
+// import { DataGrid } from '@material-ui/data-grid';
+import Pagination from '@material-ui/lab/Pagination';
+ 
 import useStyles from "assets/styles/portfolio";
 
 import portfolioExample from "assets/images/portfolioExample.jpg";
@@ -100,7 +103,7 @@ const Portfolio = () => {
         },
     ];
 
-    const PortfolioCard = (portfolio: any) => {
+    const PortfolioCard = (portfolio: any, index: any) => {
         const [rightMenuVisible, setRightMenuVisible] = useState(false);
         const [imageMenuSlice, setImageMenuSlice] = useState(false);
 
@@ -115,6 +118,7 @@ const Portfolio = () => {
 
         return (
             <Grid 
+                key={index}
                 onMouseOver={() => ([setRightMenuVisible(true), setImageMenuSlice(true)])}
                 onMouseMove={() => ([setRightMenuVisible(true), setImageMenuSlice(true)])}
                 onMouseOut={() => ([setRightMenuVisible(false), setImageMenuSlice(false)])} 
@@ -127,7 +131,7 @@ const Portfolio = () => {
                                 className={styles.CardContainerFirstAction}
                                 style={imageMenuSliceAnimation}
                             >
-                                <img src={ portfolio.img } width="320" height="255" alt=""/>  
+                                <img src={ portfolio.img } width="310" height="255" alt=""/>  
                                 <animated.div 
                                     className={styles.CardContainerSecondAction} 
                                     style={rightMenuAnimation}
@@ -149,16 +153,16 @@ const Portfolio = () => {
             </Grid>
         );
     }
-
+ 
     return (
         <Grid className={styles.root} container>
-            <Grid  lg={1} xl={2}/>
-            <Grid container direction="column" xs={12} sm={12} md={12} lg={10} xl={8}>
+            <Grid item lg={1} xl={2}/>
+            <Grid container direction="column" item xs={12} sm={12} md={12} lg={10} xl={8}>
                 <Grid container className={styles.portfolioTopContainer}>
-                    <Grid sm={1} md={1} lg={1} xl={1} />
-                    <Grid container alignItems="center" justify="space-between" xs={12} sm={10} md={10} lg={10} xl={10}>
+                    <Grid item sm={1} md={1} lg={1} xl={1} />
+                    <Grid container item alignItems="center" justify="space-between" xs={12} sm={10} md={10} lg={10} xl={10}>
                         <Grid>
-                            <Typography variant="body2"  className={styles.portfolioTopLeftText}>
+                            <Typography component="div" variant="body2"  className={styles.portfolioTopLeftText}>
                                 <Box color="text.primary">
                                     ALL
                                 </Box>
@@ -167,36 +171,42 @@ const Portfolio = () => {
                         <Grid>
                             <Hidden xsDown>
                                 <Grid>
-                                    <Typography variant="body2"  className={styles.portfolioTopRightText}>
-                                        Sort portfolio:___Applications__Logo__Illustration
+                                    <Typography component="div" variant="body2"  className={styles.portfolioTopRightText}>
+                                        <Box color="text.primary">
+                                            Sort portfolio:___Applications__Logo__Illustration
+                                        </Box>
                                     </Typography>
                                 </Grid>
                             </Hidden>
                             <Hidden smUp>
                                 <Grid>
-                                    <Typography variant="body2"  className={styles.portfolioTopRightText}>
-                                        Sort -
+                                    <Typography component="div" variant="body2"  className={styles.portfolioTopRightText}>
+                                        <Box color="text.primary">
+                                            Sort -
+                                        </Box>
                                     </Typography>
                                 </Grid>
                             </Hidden>
                         </Grid>
                     </Grid>
-                    <Grid sm={1} md={1} lg={1} xl={1} />
+                    <Grid item sm={1} md={1} lg={1} xl={1} />
                 </Grid>
                 <Grid container alignItems="center" justify="center">
-                    { portfolio.map((portfolio) => {
+                    { portfolio.map((portfolio, index) => {
+                        // <PaginationItem  />
                         return (
-                            PortfolioCard(portfolio)
+                            PortfolioCard(portfolio, index)
                         );
                     })}
                 </Grid>
                 <Grid container alignItems="center" justify="center" className={styles.portfolioBottomContainer}>
-                    <Typography variant="body2"  className={styles.portfolioTopContainer}>
-                        1 - 2 - 3
+                    <Typography component="div" variant="body2"  className={styles.portfolioTopContainer}>
+                        {/* <DataGrid pageSize={5} rowsPerPageOptions={[5, 10, 20]} pagination {...data} /> */}
+                        <Pagination count={3} {...portfolio} showFirstButton showLastButton shape="rounded"/>
                     </Typography> 
                 </Grid>
             </Grid>
-            <Grid  lg={1} xl={2}/>
+            <Grid item lg={1} xl={2}/>
         </Grid>
     )
 }

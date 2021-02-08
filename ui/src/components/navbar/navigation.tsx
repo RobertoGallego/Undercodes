@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { 
     AppBar, 
     Toolbar,
-    Typography, 
     IconButton, 
     Drawer, 
     Grid,
-    Link,
 } from "@material-ui/core";
+
+import { useSelector } from "react-redux";
 
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 
@@ -19,6 +20,9 @@ import DrawerMenu from "components/drawer/drawer";
 
 import useStyles from "assets/styles/navigation";
 
+import logo from "assets/images/logos.png"
+import logoDark from "assets/images/logoDark.png"
+
 interface Props {
 }
 
@@ -27,7 +31,8 @@ const Navigation = (props: Props) => {
 
     const nodeRef = React.useRef(null);
     const styles = useStyles(props);
-    
+    // const refFromCreateRef = createRef<HTMLDivElement>();
+
     const toggleDrawer = (open: boolean) => (event: any) => { 
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -35,22 +40,36 @@ const Navigation = (props: Props) => {
         setdrawerSwitch(open);
     };
 
+    const switchTheme = (state: ThemeState) => state.options[0].switchTheme
+    const themeSetting = useSelector(switchTheme)
+
     return (
         <Grid className={styles.root}>
             <AppBar position="static" elevation={0} color="transparent">
                 <Toolbar className={styles.headerToolbar}>
                     <Grid className={styles.headerContainer} container>
-                        <Grid sm={1} md={1} lg={2} xl={3} />
+                        <Grid sm={1} md={1} lg={2} xl={3} item/>
                         <Grid 
                             container justify="space-between" alignItems="center"
-                            xs={12} sm={10} md={10} lg={8} xl={6}
+                            xs={12} sm={10} md={10} lg={8} xl={6} item
                         >
-                            <Typography variant="h6" className={styles.headerTitle}>
-                                <Link className={styles.headerFontTitle} href="/">
-                                    UNDERCODES
+                             { themeSetting ?
+                                <Link className={styles.headerFontTitle}  to="/">
+                                    <picture className={styles.headerTitle}>
+                                        <img src={logoDark} alt="" height={30}/>
+                                    </picture>
                                 </Link>
-                            </Typography>
-                            {/* <Hidden xsDown>
+                            :
+                                <Link className={styles.headerFontTitle}  to="/">
+                                    <picture className={styles.headerTitle}>
+                                        <img src={logo} alt="" height={30}/>
+                                    </picture>
+                                </Link>
+                            }
+                            {/* <Typography variant="h6" className={styles.headerTitle}>
+                                UNDERCODES 
+                            </Typography> */}
+                            {/* <Hidden xsDown> 
                                 <Menu/>
                             </Hidden> */}
                             {/* <Hidden xsUp> */}
@@ -62,13 +81,13 @@ const Navigation = (props: Props) => {
                                 <MenuRoundedIcon/>
                             </IconButton>
                         </Grid>
-                        <Grid sm={1} md={1} lg={2} xl={3} />
+                        <Grid sm={1} md={1} lg={2} xl={3} item/>
                         {/* </Hidden> */}
                     </Grid>
                     <CSSTransition nodeRef={nodeRef} in timeout={200} classNames="fade">
                         <div ref={nodeRef}>
                             <Drawer
-                                anchor={"top"}
+                                anchor={"top"} 
                                 open={drawerSwitch}
                                 onClose={toggleDrawer(false)}
                             >

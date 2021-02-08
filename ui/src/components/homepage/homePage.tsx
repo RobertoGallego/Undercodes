@@ -19,13 +19,13 @@ const HomePage = () => {
         <Grid className={styles.root} container>
             <Grid container>
                 <Grid 
-                    container alignItems="center"
+                    container item alignItems="center"
                     xs={12} sm={12} md={6} lg={6}
                 >   
                     <TextSlider/>
                 </Grid>
                 <Grid 
-                    container alignItems="center" justify="center"
+                    container item alignItems="center" justify="center"
                     xs={12} sm={12} md={6} lg={6}
                 > 
                     <picture className={styles.TopSliderImage}>
@@ -38,9 +38,9 @@ const HomePage = () => {
                     </picture>
                 </Grid>
             </Grid>
-            <Grid container xs={12} sm={12} md={12}>
-                <Grid sm={1} md={2} xl={1} />
-                <Grid xs={11} sm={10} md={9} xl={10} container justify="flex-end" alignItems="flex-end">
+            <Grid container item xs={12} sm={12} md={12}>
+                <Grid item sm={1} md={2} xl={1} />
+                <Grid item xs={11} sm={10} md={9} xl={10} container justify="flex-end" alignItems="flex-end">
                     <Grid>
                         <Typography variant="h3" className={styles.bottomSliderTitle}>
                             Lorem ipsum dolor sit
@@ -55,7 +55,7 @@ const HomePage = () => {
                         </Typography>
                     </Grid>
                 </Grid>
-                <Grid xs={1} sm={1} md={1} xl={1} />
+                <Grid item xs={1} sm={1} md={1} xl={1} />
             </Grid>
             {/* <AnimateKeyframes
                     play={true}

@@ -12,9 +12,10 @@ const Undercodes = () => {
     const styles = useStyles();
     
     return (
-        <Grid xs={12} className={styles.root} container direction="row" justify="center" alignItems="center">
+        <Grid item xs={12} className={styles.root} container direction="row" justify="center" alignItems="center">
             <Grid 
                 container 
+                item
                 direction="column" 
                 justify="center" 
                 alignItems="center"
@@ -26,10 +27,10 @@ const Undercodes = () => {
                 <SocialIcon urlTo={"/"} iconComponent={<TiSocialGithub size="30" className={styles.homeSocialIcons}/>}/>
                 <SocialIcon urlTo={"/"} iconComponent={<TiSocialFacebook size="30" className={styles.homeSocialIcons}/>}/>
             </Grid>
-            <Grid container xs={10} sm={10} md={10} lg={8} xl={6}>
+            <Grid container item xs={10} sm={10} md={10} lg={8} xl={6}>
                 <HomePage/>
             </Grid>
-            <Grid lg={2} xl={3} />
+            <Grid item lg={2} xl={3} />
         </Grid>
     )
 }

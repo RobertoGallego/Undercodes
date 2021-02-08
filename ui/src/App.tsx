@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from "react-router-dom";
-import { shallowEqual, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import Routes from "routes";
 
@@ -17,15 +17,15 @@ import useStyles from 'assets/styles/rootStyle';
 function App() {
     const styles = useStyles();
 
-    const settings: ThemeSetting[] = useSelector(
-        (state: ThemeState) => state.options,
-        shallowEqual
-    )
+    // const settings: ThemeSetting[] = useSelector(
+    //     (state: ThemeState) => state.options,
+    //     shallowEqual
+    // )
 
     const switchTheme = (state: ThemeState) => state.options[0].switchTheme
     const themeSetting = useSelector(switchTheme)
 
-    console.log("===>", themeSetting, settings);
+    // console.log("===>", themeSetting, settings);
 
     return (
         <ThemeProvider theme={themeSetting ? darkTheme() : theme()}>

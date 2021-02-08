@@ -33,11 +33,11 @@ const useStyles = makeStyles(theme => ({
             textDecoration: "none",
         },
     },
-    menuButton: {
+    menuButtonMain: {
         marginRight: theme.spacing(5),
         fontSize: 14,
+        // color: "black",
         "&:hover": {
-            textDecoration: "none",
             color: "#777777",
         },
         "@media (max-width: 600px)": {
@@ -46,25 +46,48 @@ const useStyles = makeStyles(theme => ({
             marginRight: theme.spacing(2),
         },
     },
-    // Wrapper style
-    wrapperCenter: {
-        minWidth: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    wrapperIconEffect: {
-        "&:hover": {
-            backgroundColor: "transparent"
-        },
-    },
-    wrapperButton: {
-        marginRight: theme.spacing(2),
-        fontSize: 16,
+    menuButtonHover: {
+        textDecoration: "none",
         "&:hover": {
             textDecoration: "none",
         },
+        "@media (max-width: 600px)": {
+            textDecoration: "none",
+        }
     },
+    // Wrapper style
+    wrapperCenter: {
+        minWidth: "100%",
+        display: "block",
+        marginInline: "0",
+        paddingInline: "0", 
+        paddingBlock: 15,
+        alignSelf: "center",
+        borderRadius: "0",
+        "&:hover": {
+            backgroundColor: "#ededed",
+            borderRadius: 0
+        },
+    },
+    wrapperIcon: {
+        marginInline: "0",
+        paddingInline: "0", 
+        "&:hover": {
+            borderRadius: 0
+        },
+    }, 
+    wrapperButtonMain: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        fontSize: 16,
+    },
+    wrapperButtonHover: {
+        textDecoration: "none",
+        "&:hover": {
+            textDecoration: "none",
+        },
+    }
 }));
 
 export default useStyles;

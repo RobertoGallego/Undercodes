@@ -31,16 +31,22 @@ const Footer = () => {
 
     return (
         <Grid className={styles.root} container>
-            <Grid sm={1} md={1} lg={2} xl={3} />
-            <Grid xs={12} sm={10} md={10} lg={8} xl={6} container justify="space-between" alignItems="center">
+            <Grid sm={1} md={1} lg={2} xl={3} item/>
+            <Grid xs={12} sm={10} md={10} lg={8} xl={6} container item justify="space-between" alignItems="center">
                 <Grid className={styles.footerContainerLeft}>
                     <Menu/>
                 </Grid>
-                <IconButton className={styles.footerContainerRight} >
-                    { !themeSetting ? <Brightness7Icon onClick={toggleChecked}/> : <Brightness4Icon onClick={toggleChecked}/>}
-                </IconButton>
+                    { !themeSetting ? 
+                        <IconButton onClick={toggleChecked} className={styles.footerContainerRight}>
+                            <Brightness7Icon />
+                        </IconButton>
+                    :       
+                        <IconButton onClick={toggleChecked} className={styles.footerContainerRight}>
+                            <Brightness4Icon />
+                        </IconButton>
+                    }
             </Grid>
-            <Grid sm={1} md={1} lg={2} xl={3} />
+            <Grid sm={1} md={1} lg={2} xl={3} item/>
         </Grid>
     )
 }

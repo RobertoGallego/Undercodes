@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme)=> ({
     CardContainerAction: {
         zindex: 40,
         cursor: "pointer",
-        width: 320,
+        width: 310,
         marginTop: "-10%",
         transitionDuration: "0.1s",
 
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme: Theme)=> ({
         position: "absolute",
         bottom: 0,
         left: 0,
-        width: 320,
+        width: 310,
         paddingBlock: 10,
     }
 }));
