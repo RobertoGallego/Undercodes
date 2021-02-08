@@ -193,7 +193,6 @@ const Portfolio = () => {
                 </Grid>
                 <Grid container alignItems="center" justify="center">
                     { portfolio.map((portfolio, index) => {
-                        // <PaginationItem  />
                         return (
                             PortfolioCard(portfolio, index)
                         );
@@ -202,7 +201,7 @@ const Portfolio = () => {
                 <Grid container alignItems="center" justify="center" className={styles.portfolioBottomContainer}>
                     <Typography component="div" variant="body2"  className={styles.portfolioTopContainer}>
                         {/* <DataGrid pageSize={5} rowsPerPageOptions={[5, 10, 20]} pagination {...data} /> */}
-                        <Pagination count={3} {...portfolio} showFirstButton showLastButton shape="rounded"/>
+                        <Pagination count={3} showFirstButton showLastButton shape="rounded"/>
                     </Typography> 
                 </Grid>
             </Grid>
